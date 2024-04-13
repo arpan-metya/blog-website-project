@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import authService from "../../appwrite/auth";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch()
@@ -36,6 +37,12 @@ function Login() {
     <Container flexBox bgColor="bg-neutral-300 dark:bg-neutral-700" className="flex-1 py-2">
       <Container className="max-w-lg rounded-2xl p-5 my-auto" bgColor="bg-white dark:bg-neutral-800">
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Container flexBox flexProp="!gap-1">
+            <h2 className="text-2xl font-semibold text-neutral-800 dark:text-neutral-300">Login</h2>
+            <p className="text-neutral-700 dark:text-neutral-400">
+              Don't have a account? <Link to="/register" className="text-fuchsia-500">Register</Link>
+            </p>
+          </Container>
           <Input label="Email" name="email" type="email" {...register('email', {
             required: 'email is required',
             pattern: {
